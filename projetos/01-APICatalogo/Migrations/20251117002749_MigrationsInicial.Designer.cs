@@ -12,7 +12,7 @@ using _01_APICatalogo.Context;
 namespace _01_APICatalogo.Migrations
 {
     [DbContext(typeof(CatalogoDbContext))]
-    [Migration("20251116235223_MigrationsInicial")]
+    [Migration("20251117002749_MigrationsInicial")]
     partial class MigrationsInicial
     {
         /// <inheritdoc />
@@ -70,8 +70,8 @@ namespace _01_APICatalogo.Migrations
                     b.Property<string>("Nome")
                         .HasColumnType("longtext");
 
-                    b.Property<double>("Preco")
-                        .HasColumnType("double");
+                    b.Property<decimal>("Preco")
+                        .HasColumnType("decimal(65,30)");
 
                     b.HasKey("ProdutoId");
 
