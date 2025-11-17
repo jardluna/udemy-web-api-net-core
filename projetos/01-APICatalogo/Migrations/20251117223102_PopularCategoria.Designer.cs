@@ -3,17 +3,20 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using _01_APICatalogo.Context;
 
 #nullable disable
 
-namespace _01_APICatalogo.Migrationsl
+namespace _01_APICatalogo.Migrations
 {
     [DbContext(typeof(CatalogoDbContext))]
-    partial class CatalogoDbContextModelSnapshot : ModelSnapshot
+    [Migration("20251117223102_PopularCategoria")]
+    partial class PopularCategoria
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

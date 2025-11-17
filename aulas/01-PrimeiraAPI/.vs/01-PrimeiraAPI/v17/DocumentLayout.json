@@ -28,22 +28,10 @@
               "RelativeDocumentMoniker": "Controllers\\WeatherForecastController.cs",
               "ToolTip": "C:\\Users\\mathe\\Cursos\\udemy-web-api-net-core\\aulas\\01-PrimeiraAPI\\Controllers\\WeatherForecastController.cs",
               "RelativeToolTip": "Controllers\\WeatherForecastController.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAcwBMAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAIwBMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-12T22:56:48.568Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
             },
             {
               "$type": "Document",
@@ -55,8 +43,7 @@
               "RelativeToolTip": "Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-12T22:14:41.719Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-12T22:14:41.719Z"
             }
           ]
         }
