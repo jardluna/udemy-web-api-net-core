@@ -11,6 +11,6 @@ public class CatalogoDbContext : DbContext
 
     public CatalogoDbContext(DbContextOptions<CatalogoDbContext> options) : base(options)
     {
-        
+
     }
 }

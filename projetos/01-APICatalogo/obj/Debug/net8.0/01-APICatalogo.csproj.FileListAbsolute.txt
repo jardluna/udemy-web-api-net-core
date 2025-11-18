@@ -111,3 +111,4 @@ C:\Users\mathe\Cursos\udemy-web-api-net-core\projetos\01-APICatalogo\obj\Debug\n
 C:\Users\mathe\Cursos\udemy-web-api-net-core\projetos\01-APICatalogo\obj\Debug\net8.0\01-APICatalogo.pdb
 C:\Users\mathe\Cursos\udemy-web-api-net-core\projetos\01-APICatalogo\obj\Debug\net8.0\01-APICatalogo.genruntimeconfig.cache
 C:\Users\mathe\Cursos\udemy-web-api-net-core\projetos\01-APICatalogo\obj\Debug\net8.0\ref\01-APICatalogo.dll
+C:\Users\mathe\Cursos\udemy-web-api-net-core\projetos\01-APICatalogo\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
