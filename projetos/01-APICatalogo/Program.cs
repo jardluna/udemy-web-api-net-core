@@ -1,15 +1,20 @@
 using _01_APICatalogo.Context;
 using Microsoft.EntityFrameworkCore;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddControllers();
+//Forma de ignorar a ocorrencia de referência cíclica (quando uma classe referência a outra e vice e versa)
+builder.Services.AddControllers().AddJsonOptions(
+    options => options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
+
+//builder.Services.AddControllers(); // builder padrão da Controller
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-string mySqlConnection = builder.Configuration.GetConnectionString("DefaultConnection");
+var mySqlConnection = builder.Configuration.GetConnectionString("DefaultConnection");
 
 builder.Services.AddDbContext<CatalogoDbContext>(options => 
                          options.UseMySql(mySqlConnection, 

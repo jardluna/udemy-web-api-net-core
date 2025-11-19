@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace _01_APICatalogo.Controllers;
 
-[Route("[controller]")]
+[Route("api/[controller]")]
 [ApiController]
 public class ProdutosController : ControllerBase
 {
@@ -30,7 +30,7 @@ public class ProdutosController : ControllerBase
     }
 
     [HttpGet("{id:int}", Name = "ObterProduto")] // Método que RETORNA/LÊ um Produto pelo id na tabela
-    public ActionResult<Produto> Get(int id)
+    public ActionResult Get(int id)
     {
         var produto = _context.Produtos.FirstOrDefault(p => p.ProdutoId == id);
 
@@ -39,7 +39,7 @@ public class ProdutosController : ControllerBase
             return NotFound("Produto não encontrado...");
         }
 
-        return produto;
+        return Ok(produto);
     }
 
     [HttpPost] // Método que CRIA um Produto na tabela
