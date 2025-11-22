@@ -6,7 +6,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-//Forma de ignorar a ocorrencia de referência cíclica (quando uma classe referência a outra e vice e versa)
+//Forma de ignorar a ocorrencia de referência cíclica (quando uma classe referência a outra e vice e versa.
+//Ex: classe Categoria referência a classe Produto e vice e versa)
 builder.Services.AddControllers().AddJsonOptions(
     options => options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
 
