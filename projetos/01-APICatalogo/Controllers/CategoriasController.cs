@@ -18,11 +18,15 @@ public class CategoriasController : ControllerBase
 
 
     [HttpGet] // Método que RETORNA/LÊ todos as Categorias da tabela
-    public ActionResult<IEnumerable<Categoria>> Get()
+    public async Task<ActionResult<IEnumerable<Categoria>>> GetAsync()
     {
         try
         {
-            var categorias = _context.Categorias.AsNoTracking().Take(5).ToList();
+            //var categorias = _context.Categorias.AsNoTracking().Take(5).ToList(); // Take() é um método que pega apenas uma quantidade 
+            // limitada de itens de uma lista, coleção ou consulta ao banco.
+
+            var categorias = await _context.Categorias.AsNoTracking().ToListAsync(); // AsNoTracking() melhora a performace do código
+                                                                                     // quando há apenas leitura de dados
 
             if (categorias is null)
             {
@@ -40,12 +44,16 @@ public class CategoriasController : ControllerBase
 
 
     [HttpGet("Produtos")] // Método que RETORNA/LÊ todos as Categorias e Produtos da tabela
-    public ActionResult<IEnumerable<Categoria>> GetCategoriasEProdutos()
+    public async Task<ActionResult<IEnumerable<Categoria>>> GetCategoriasEProdutosAsync()
     {
         try
         {
-            var categorias = _context.Categorias.AsNoTracking().
-                Include(p => p.Produtos).Where(c => c.CategoriaId <= 5).ToList();
+            //var categorias = _context.Categorias.AsNoTracking().
+                //Include(p => p.Produtos).Where(c => c.CategoriaId <= 5).ToList(); // Where() é um filtro que mostra apenas
+                                                                                    // os itens que atendem as condições
+
+            var categorias = await _context.Categorias.AsNoTracking().
+                Include(p => p.Produtos).ToListAsync();
 
             if (categorias is null)
             {
@@ -63,15 +71,15 @@ public class CategoriasController : ControllerBase
 
 
     [HttpGet("{id:int}", Name = "ObterCategoria")] // Método que RETORNA/LÊ uma Categoria pelo id na tabela
-    public ActionResult Get(int id)
+    public async Task<ActionResult<Categoria>> GetAsync(int id)
     {
         try
         {
-            var categoria = _context.Categorias.AsNoTracking().FirstOrDefault(p => p.CategoriaId == id);
+            var categoria = await _context.Categorias.AsNoTracking().FirstOrDefaultAsync(p => p.CategoriaId == id);
 
             if (categoria is null)
             {
-                return NotFound($"Categoria do id:{id} não encontrado");
+                return NotFound($"Categoria do id ({id}) não encontrada");
             }
 
             return Ok(categoria);
@@ -85,7 +93,7 @@ public class CategoriasController : ControllerBase
 
 
     [HttpPost] // Método que CRIA uma Categoria na tabela
-    public ActionResult Post(Categoria categoria)
+    public async Task<ActionResult<Categoria>> PostAsync(Categoria categoria)
     {
         try
         {
@@ -94,8 +102,8 @@ public class CategoriasController : ControllerBase
                 return BadRequest();
             }
 
-            _context.Categorias.Add(categoria);
-            _context.SaveChanges();
+            await _context.Categorias.AddAsync(categoria);
+            await _context.SaveChangesAsync();
 
             return new CreatedAtRouteResult("ObterCategoria",
                 new { id = categoria.CategoriaId }, categoria);
@@ -109,18 +117,18 @@ public class CategoriasController : ControllerBase
 
 
     [HttpPut("{id:int}")] // Método que ATUALIZA uma Categoria pelo id na tabela
-    public ActionResult Put(int id, Categoria categoria)
+    public async Task<ActionResult<Categoria>> PutAsync(int id, Categoria categoria)
     {
         try
         {
             if (id != categoria.CategoriaId)
             {
-                return BadRequest($"Categoria do id:{id} não encontrado");
+                return BadRequest($"Categoria do id ({id}) não encontrada");
             }
 
             _context.Entry(categoria).State = EntityState.Modified;
-            _context.SaveChanges();
-
+            await _context.SaveChangesAsync();
+            
             return Ok(categoria);
         }
         catch (Exception)
@@ -132,19 +140,19 @@ public class CategoriasController : ControllerBase
 
 
     [HttpDelete("{id:int}")] // Método que DELETA uma Categoria da tabela
-    public ActionResult Delete(int id)
+    public async Task<ActionResult<Categoria>> DeleteAsync(int id)
     {
         try
         {
-            var categoria = _context.Categorias.FirstOrDefault(p => p.CategoriaId == id);
+            var categoria = await _context.Categorias.FirstOrDefaultAsync(p => p.CategoriaId == id);
 
             if (categoria is null)
             {
-                return NotFound($"Categoria do id:{id} não encontrado");
+                return NotFound($"Categoria do id ({id}) não encontrada");
             }
 
             _context.Categorias.Remove(categoria);
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
 
             return Ok(categoria);
         }

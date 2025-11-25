@@ -4,7 +4,6 @@ using System.Text.Json.Serialization;
 
 namespace _01_APICatalogo.Domain;
 
-[Table("Produtos")]
 public class Produto
 {
     [Key]

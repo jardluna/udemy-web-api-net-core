@@ -18,38 +18,42 @@ public class ProdutosController : ControllerBase
 
 
     [HttpGet] // Método que RETORNA/LÊ todos os Produtos da tabela
-    public ActionResult<IEnumerable<Produto>> Get()
+    public async Task<ActionResult<IEnumerable<Produto>>> GetAsync()
     {
         try
         {
-            var produtos = _context.Produtos.AsNoTracking().Take(5).ToList();
+            //var produtos = _context.Produtos.AsNoTracking().Take(5).ToList(); // Take() é um método que pega apenas uma quantidade 
+                                                                                // limitada de itens de uma lista, coleção ou consulta ao banco.
+
+            var produtos = await _context.Produtos.AsNoTracking().ToListAsync(); // AsNoTracking() melhora a performace do código
+                                                                                 // quando há apenas leitura de dados
 
             if (produtos is null)
             {
                 return NotFound("Produto não encontrado");
             }
 
-            return produtos;
+            return Ok(produtos);
         }
         catch (Exception)
         {
 
-            return StatusCode(StatusCodes.Status500InternalServerError, 
+            return StatusCode(StatusCodes.Status500InternalServerError,
                 "Ocorreu um problema ao tratar sua solicitação");
         }
     }
 
 
     [HttpGet("{id:int}", Name = "ObterProduto")] // Método que RETORNA/LÊ um Produto pelo id na tabela
-    public ActionResult Get(int id)
+    public async Task<ActionResult<Produto>> GetAsync(int id)
     {
         try
         {
-            var produto = _context.Produtos.AsNoTracking().FirstOrDefault(p => p.ProdutoId == id);
+            var produto = await _context.Produtos.AsNoTracking().FirstOrDefaultAsync(p => p.ProdutoId == id);
 
             if (produto is null)
             {
-                return NotFound($"Produto do id:{id} não encontrado");
+                return NotFound($"Produto do id ({id}) não encontrado");
             }
 
             return Ok(produto);
@@ -64,7 +68,7 @@ public class ProdutosController : ControllerBase
 
 
     [HttpPost] // Método que CRIA um Produto na tabela
-    public ActionResult Post(Produto produto)
+    public async Task<ActionResult<Produto>> PostAsync(Produto produto)
     {
         try
         {
@@ -73,8 +77,8 @@ public class ProdutosController : ControllerBase
                 return BadRequest();
             }
 
-            _context.Produtos.Add(produto);
-            _context.SaveChanges();
+            await _context.Produtos.AddAsync(produto);
+            await _context.SaveChangesAsync();
 
             return new CreatedAtRouteResult("ObterProduto",
                 new { id = produto.ProdutoId }, produto);
@@ -89,17 +93,17 @@ public class ProdutosController : ControllerBase
 
 
     [HttpPut("{id:int}")] // Método que ATUALIZA um Produto pelo id na tabela
-    public ActionResult Put(int id, Produto produto)
+    public async Task<ActionResult<Produto>> PutAsync(int id, Produto produto)
     {
         try
         {
             if (id != produto.ProdutoId)
             {
-                return BadRequest($"Produto do id:{id} não encontrado");
+                return BadRequest($"Produto do id ({id}) não encontrado");
             }
 
             _context.Entry(produto).State = EntityState.Modified;
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
 
             return Ok(produto);
         }
@@ -113,19 +117,19 @@ public class ProdutosController : ControllerBase
 
 
     [HttpDelete("{id:int}")] // Método que DELETA um Produto da tabela
-    public ActionResult Delete(int id)
+    public async Task<ActionResult<Produto>> DeleteAsync(int id)
     {
         try
         {
-            var produto = _context.Produtos.FirstOrDefault(p => p.ProdutoId == id);
+            var produto = await _context.Produtos.FirstOrDefaultAsync(p => p.ProdutoId == id);
 
             if (produto is null)
             {
-                return NotFound($"Produto do id:{id} não encontrado");
+                return NotFound($"Produto do id ({id}) não encontrado");
             }
 
             _context.Produtos.Remove(produto);
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
 
             return Ok(produto);
         }
