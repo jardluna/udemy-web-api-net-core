@@ -1,7 +1,7 @@
 [
   {
     "ContainingType": "_01_APICatalogo.Controllers.CategoriasController",
-    "Method": "Get",
+    "Method": "GetAsync",
     "RelativePath": "Categorias",
     "HttpMethod": "GET",
     "IsController": true,
@@ -21,7 +21,7 @@
   },
   {
     "ContainingType": "_01_APICatalogo.Controllers.CategoriasController",
-    "Method": "Post",
+    "Method": "PostAsync",
     "RelativePath": "Categorias",
     "HttpMethod": "POST",
     "IsController": true,
@@ -47,7 +47,7 @@
   },
   {
     "ContainingType": "_01_APICatalogo.Controllers.CategoriasController",
-    "Method": "Get",
+    "Method": "GetAsync",
     "RelativePath": "Categorias/{id}",
     "HttpMethod": "GET",
     "IsController": true,
@@ -74,7 +74,7 @@
   },
   {
     "ContainingType": "_01_APICatalogo.Controllers.CategoriasController",
-    "Method": "Put",
+    "Method": "PutAsync",
     "RelativePath": "Categorias/{id}",
     "HttpMethod": "PUT",
     "IsController": true,
@@ -105,7 +105,7 @@
   },
   {
     "ContainingType": "_01_APICatalogo.Controllers.CategoriasController",
-    "Method": "Delete",
+    "Method": "DeleteAsync",
     "RelativePath": "Categorias/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
@@ -131,7 +131,27 @@
   },
   {
     "ContainingType": "_01_APICatalogo.Controllers.CategoriasController",
-    "Method": "GetCategoriasEProdutos",
+    "Method": "GetValores",
+    "RelativePath": "Categorias/LerArquivoConfiguracao",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.String",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "_01_APICatalogo.Controllers.CategoriasController",
+    "Method": "GetCategoriasEProdutosAsync",
     "RelativePath": "Categorias/Produtos",
     "HttpMethod": "GET",
     "IsController": true,
@@ -151,7 +171,7 @@
   },
   {
     "ContainingType": "_01_APICatalogo.Controllers.ProdutosController",
-    "Method": "Get",
+    "Method": "GetAsync",
     "RelativePath": "Produtos",
     "HttpMethod": "GET",
     "IsController": true,
@@ -171,7 +191,7 @@
   },
   {
     "ContainingType": "_01_APICatalogo.Controllers.ProdutosController",
-    "Method": "Post",
+    "Method": "PostAsync",
     "RelativePath": "Produtos",
     "HttpMethod": "POST",
     "IsController": true,
@@ -197,7 +217,7 @@
   },
   {
     "ContainingType": "_01_APICatalogo.Controllers.ProdutosController",
-    "Method": "Get",
+    "Method": "GetAsync",
     "RelativePath": "Produtos/{id}",
     "HttpMethod": "GET",
     "IsController": true,
@@ -224,7 +244,7 @@
   },
   {
     "ContainingType": "_01_APICatalogo.Controllers.ProdutosController",
-    "Method": "Put",
+    "Method": "PutAsync",
     "RelativePath": "Produtos/{id}",
     "HttpMethod": "PUT",
     "IsController": true,
@@ -255,7 +275,7 @@
   },
   {
     "ContainingType": "_01_APICatalogo.Controllers.ProdutosController",
-    "Method": "Delete",
+    "Method": "DeleteAsync",
     "RelativePath": "Produtos/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,

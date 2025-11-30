@@ -2,6 +2,7 @@
 using _01_APICatalogo.Domain;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Reflection.Metadata.Ecma335;
 
 namespace _01_APICatalogo.Controllers;
 
@@ -10,10 +11,12 @@ namespace _01_APICatalogo.Controllers;
 public class CategoriasController : ControllerBase
 {
     private readonly CatalogoDbContext _context;
+    private readonly IConfiguration _configuration;
 
-    public CategoriasController(CatalogoDbContext context)
+    public CategoriasController(CatalogoDbContext context, IConfiguration configuration)
     {
         _context = context;
+        _configuration = configuration;
     }
 
 
@@ -42,6 +45,18 @@ public class CategoriasController : ControllerBase
         }
     }
 
+    /*Lendo arquivos do appsettings.json
+     * 
+     * [HttpGet("LerArquivoConfiguracao")]
+    public string GetValores()
+    {
+        var valor1 = _configuration["chave1"];
+        var valor2 = _configuration["chave2"];
+
+        var secao1 = _configuration["secao1:chave2"];
+
+        return $"Chave1 = {valor1} \nChave2 = {valor2} \nSeção1 => Chave2 = {secao1}";
+    }*/
 
     [HttpGet("Produtos")] // Método que RETORNA/LÊ todos as Categorias e Produtos da tabela
     public async Task<ActionResult<IEnumerable<Categoria>>> GetCategoriasEProdutosAsync()

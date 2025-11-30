@@ -3,12 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\mathe\\Cursos\\udemy-web-api-net-core\\projetos\\01-APICatalogo\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{CC4C8298-9E30-4E48-96B4-B373A67967F4}|01-APICatalogo.csproj|c:\\users\\mathe\\cursos\\udemy-web-api-net-core\\projetos\\01-apicatalogo\\controllers\\produtoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CC4C8298-9E30-4E48-96B4-B373A67967F4}|01-APICatalogo.csproj|solutionrelative:controllers\\produtoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{CC4C8298-9E30-4E48-96B4-B373A67967F4}|01-APICatalogo.csproj|c:\\users\\mathe\\cursos\\udemy-web-api-net-core\\projetos\\01-apicatalogo\\extensions\\apiexceptionsmiddlewareextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CC4C8298-9E30-4E48-96B4-B373A67967F4}|01-APICatalogo.csproj|solutionrelative:extensions\\apiexceptionsmiddlewareextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CC4C8298-9E30-4E48-96B4-B373A67967F4}|01-APICatalogo.csproj|c:\\users\\mathe\\cursos\\udemy-web-api-net-core\\projetos\\01-apicatalogo\\domain\\errordetails.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CC4C8298-9E30-4E48-96B4-B373A67967F4}|01-APICatalogo.csproj|solutionrelative:domain\\errordetails.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{CC4C8298-9E30-4E48-96B4-B373A67967F4}|01-APICatalogo.csproj|c:\\users\\mathe\\cursos\\udemy-web-api-net-core\\projetos\\01-apicatalogo\\controllers\\categoriascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CC4C8298-9E30-4E48-96B4-B373A67967F4}|01-APICatalogo.csproj|solutionrelative:controllers\\categoriascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CC4C8298-9E30-4E48-96B4-B373A67967F4}|01-APICatalogo.csproj|c:\\users\\mathe\\cursos\\udemy-web-api-net-core\\projetos\\01-apicatalogo\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CC4C8298-9E30-4E48-96B4-B373A67967F4}|01-APICatalogo.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CC4C8298-9E30-4E48-96B4-B373A67967F4}|01-APICatalogo.csproj|c:\\users\\mathe\\cursos\\udemy-web-api-net-core\\projetos\\01-apicatalogo\\controllers\\produtoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CC4C8298-9E30-4E48-96B4-B373A67967F4}|01-APICatalogo.csproj|solutionrelative:controllers\\produtoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -23,25 +35,64 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "ApiExceptionsMiddlewareExtensions.cs",
+              "DocumentMoniker": "C:\\Users\\mathe\\Cursos\\udemy-web-api-net-core\\projetos\\01-APICatalogo\\Extensions\\ApiExceptionsMiddlewareExtensions.cs",
+              "RelativeDocumentMoniker": "Extensions\\ApiExceptionsMiddlewareExtensions.cs",
+              "ToolTip": "C:\\Users\\mathe\\Cursos\\udemy-web-api-net-core\\projetos\\01-APICatalogo\\Extensions\\ApiExceptionsMiddlewareExtensions.cs",
+              "RelativeToolTip": "Extensions\\ApiExceptionsMiddlewareExtensions.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-29T23:54:32.394Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ErrorDetails.cs",
+              "DocumentMoniker": "C:\\Users\\mathe\\Cursos\\udemy-web-api-net-core\\projetos\\01-APICatalogo\\Domain\\ErrorDetails.cs",
+              "RelativeDocumentMoniker": "Domain\\ErrorDetails.cs",
+              "ToolTip": "C:\\Users\\mathe\\Cursos\\udemy-web-api-net-core\\projetos\\01-APICatalogo\\Domain\\ErrorDetails.cs",
+              "RelativeToolTip": "Domain\\ErrorDetails.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-29T23:50:49.149Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\mathe\\Cursos\\udemy-web-api-net-core\\projetos\\01-APICatalogo\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\mathe\\Cursos\\udemy-web-api-net-core\\projetos\\01-APICatalogo\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAAAIAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-29T21:58:56.565Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "ProdutosController.cs",
               "DocumentMoniker": "C:\\Users\\mathe\\Cursos\\udemy-web-api-net-core\\projetos\\01-APICatalogo\\Controllers\\ProdutosController.cs",
               "RelativeDocumentMoniker": "Controllers\\ProdutosController.cs",
               "ToolTip": "C:\\Users\\mathe\\Cursos\\udemy-web-api-net-core\\projetos\\01-APICatalogo\\Controllers\\ProdutosController.cs",
               "RelativeToolTip": "Controllers\\ProdutosController.cs",
-              "ViewState": "AgIAAHwAAAAAAAAAAAAAwHcAAAA4AAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-18T01:09:41.471Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "CategoriasController.cs",
               "DocumentMoniker": "C:\\Users\\mathe\\Cursos\\udemy-web-api-net-core\\projetos\\01-APICatalogo\\Controllers\\CategoriasController.cs",
               "RelativeDocumentMoniker": "Controllers\\CategoriasController.cs",
               "ToolTip": "C:\\Users\\mathe\\Cursos\\udemy-web-api-net-core\\projetos\\01-APICatalogo\\Controllers\\CategoriasController.cs",
               "RelativeToolTip": "Controllers\\CategoriasController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAJ4AAAAZAAAAAAAAAA==",
+              "ViewState": "AgIAAFMAAAAAAAAAAAAwwC8AAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-19T00:05:38.826Z",
               "EditorCaption": ""
