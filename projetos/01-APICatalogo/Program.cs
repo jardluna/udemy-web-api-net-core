@@ -1,5 +1,8 @@
 using _01_APICatalogo.Context;
 using _01_APICatalogo.Extensions;
+using _01_APICatalogo.Filters;
+using _01_APICatalogo.Interfaces;
+using _01_APICatalogo.Repositories;
 using _01_APICatalogo.Services;
 using Microsoft.EntityFrameworkCore;
 using System.Text.Json.Serialization;
@@ -8,10 +11,14 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-//Forma de ignorar a ocorrencia de referência cíclica (quando uma classe referência a outra e vice e versa.
-//Ex: classe Categoria referência a classe Produto e vice e versa)
+// Forma de ignorar a ocorrencia de referência cíclica (quando uma classe referência a outra e vice e versa.
+// Ex: classe Categoria referência a classe Produto e vice e versa)
 builder.Services.AddControllers().AddJsonOptions(
     options => options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
+
+// Trata as exceções usando um filtro
+builder.Services.AddControllers(
+    options => options.Filters.Add(typeof(ApiExceptionFilter)));
 
 //builder.Services.AddControllers(); // builder padrão da Controller
 builder.Services.AddEndpointsApiExplorer();
@@ -22,6 +29,10 @@ var mySqlConnection = builder.Configuration.GetConnectionString("DefaultConnecti
 builder.Services.AddDbContext<CatalogoDbContext>(options => 
                          options.UseMySql(mySqlConnection, 
                          ServerVersion.AutoDetect(mySqlConnection)));
+
+builder.Services.AddScoped<ICategoriaRepository, CategoriaRepository>();
+builder.Services.AddScoped<IProdutoRepository, ProdutoRepository>();
+builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 
 //builder.Services.AddTransient<IMeuServico, MeuServico>(); // Builder usado pelo FromService
 

@@ -1,5 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace _01_APICatalogo.Domain;
 
@@ -15,6 +16,8 @@ public class Categoria
     [Required]
     [StringLength(300)]
     public string? ImagemUrl { get; set; }
+
+    [JsonIgnore]
     public ICollection<Produto>? Produtos { get; set; }
 
     public Categoria()

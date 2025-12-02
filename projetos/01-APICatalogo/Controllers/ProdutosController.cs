@@ -1,7 +1,6 @@
-﻿using _01_APICatalogo.Context;
-using _01_APICatalogo.Domain;
+﻿using _01_APICatalogo.Domain;
+using _01_APICatalogo.Interfaces;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace _01_APICatalogo.Controllers;
 
@@ -9,135 +8,66 @@ namespace _01_APICatalogo.Controllers;
 [ApiController]
 public class ProdutosController : ControllerBase
 {
-    private readonly CatalogoDbContext _context;
+    private readonly IRepository<Produto> _repository;
+    private readonly IProdutoRepository _produtoRepository;
 
-    public ProdutosController(CatalogoDbContext context)
+    public ProdutosController(IRepository<Produto> repository, IProdutoRepository produtoRepository)
     {
-        _context = context;
+        _repository = repository;
+        _produtoRepository = produtoRepository;
     }
 
 
-    [HttpGet] // Método que RETORNA/LÊ todos os Produtos da tabela
-    public async Task<ActionResult<IEnumerable<Produto>>> GetAsync()
+    [HttpGet]
+    public ActionResult<IEnumerable<Produto>> Get()
     {
-        try
-        {
-            //var produtos = _context.Produtos.AsNoTracking().Take(5).ToList(); // Take() é um método que pega apenas uma quantidade 
-                                                                                // limitada de itens de uma lista, coleção ou consulta ao banco.
-
-            var produtos = await _context.Produtos.AsNoTracking().ToListAsync(); // AsNoTracking() melhora a performace do código
-                                                                                 // quando há apenas leitura de dados
-
-            if (produtos is null)
-            {
-                return NotFound("Produto não encontrado");
-            }
-
-            return Ok(produtos);
-        }
-        catch (Exception)
-        {
-
-            return StatusCode(StatusCodes.Status500InternalServerError,
-                "Ocorreu um problema ao tratar sua solicitação");
-        }
+        var produto = _repository.GetAll();
+        return Ok(produto);
     }
 
 
-    [HttpGet("{id:int}", Name = "ObterProduto")] // Método que RETORNA/LÊ um Produto pelo id na tabela
-    public async Task<ActionResult<Produto>> GetAsync(int id)
+    [HttpGet("produtos/{id:int}")]
+    public ActionResult<IEnumerable<Produto>> GetProdutosCategoria(int id)
     {
-        try
-        {
-            var produto = await _context.Produtos.AsNoTracking().FirstOrDefaultAsync(p => p.ProdutoId == id);
-
-            if (produto is null)
-            {
-                return NotFound($"Produto do id ({id}) não encontrado");
-            }
-
-            return Ok(produto);
-        }
-        catch (Exception)
-        {
-
-            return StatusCode(StatusCodes.Status500InternalServerError,
-                "Ocorreu um problema ao tratar sua solicitação");
-        }
+        var produto = _produtoRepository.GetProdutosPorCategoria(id);
+        if (produto == null) { return NotFound($"Id:{id} não encontrado"); }
+        return Ok(produto);
     }
 
 
-    [HttpPost] // Método que CRIA um Produto na tabela
-    public async Task<ActionResult<Produto>> PostAsync(Produto produto)
+    [HttpGet("{id:int}", Name = "ObterProduto")]
+    public ActionResult<Produto> Get(int id)
     {
-        try
-        {
-            if (produto is null)
-            {
-                return BadRequest();
-            }
-
-            await _context.Produtos.AddAsync(produto);
-            await _context.SaveChangesAsync();
-
-            return new CreatedAtRouteResult("ObterProduto",
-                new { id = produto.ProdutoId }, produto);
-        }
-        catch (Exception)
-        {
-
-            return StatusCode(StatusCodes.Status500InternalServerError,
-                "Ocorreu um problema ao tratar sua solicitação");
-        }
+        var produto = _repository.GetById(p => p.ProdutoId == id);
+        if (produto == null) { return NotFound($"Id:{id} não encontrado"); }
+        return Ok(produto);
     }
 
 
-    [HttpPut("{id:int}")] // Método que ATUALIZA um Produto pelo id na tabela
-    public async Task<ActionResult<Produto>> PutAsync(int id, Produto produto)
+    [HttpPost]
+    public ActionResult<Produto> Post(Produto produto)
     {
-        try
-        {
-            if (id != produto.ProdutoId)
-            {
-                return BadRequest($"Produto do id ({id}) não encontrado");
-            }
-
-            _context.Entry(produto).State = EntityState.Modified;
-            await _context.SaveChangesAsync();
-
-            return Ok(produto);
-        }
-        catch (Exception)
-        {
-
-            return StatusCode(StatusCodes.Status500InternalServerError,
-                "Ocorreu um problema ao tratar sua solicitação");
-        }
+        if (produto == null) { return BadRequest("Dados inválidos"); }
+        _repository.Create(produto);
+        return new CreatedAtRouteResult("ObterProduto", new { id = produto.CategoriaId }, produto);
     }
 
 
-    [HttpDelete("{id:int}")] // Método que DELETA um Produto da tabela
-    public async Task<ActionResult<Produto>> DeleteAsync(int id)
+    [HttpPut("{id:int}")]
+    public ActionResult<Produto> Put(int id, Produto produto)
     {
-        try
-        {
-            var produto = await _context.Produtos.FirstOrDefaultAsync(p => p.ProdutoId == id);
+        if (id != produto.ProdutoId) { return BadRequest($"Dados inválidos"); }
+        _repository.Update(produto);
+        return Ok(produto);
+    }
 
-            if (produto is null)
-            {
-                return NotFound($"Produto do id ({id}) não encontrado");
-            }
 
-            _context.Produtos.Remove(produto);
-            await _context.SaveChangesAsync();
-
-            return Ok(produto);
-        }
-        catch (Exception)
-        {
-
-            return StatusCode(StatusCodes.Status500InternalServerError,
-                "Ocorreu um problema ao tratar sua solicitação");
-        }
+    [HttpDelete("{id:int}")]
+    public ActionResult<Produto> Delete(int id)
+    {
+        var produto = _repository.GetById(p => p.ProdutoId == id);
+        if (produto == null) { return NotFound($"Id:{id} não encontrado"); }
+        _repository.Delete(produto);
+        return Ok(produto);
     }
 }
