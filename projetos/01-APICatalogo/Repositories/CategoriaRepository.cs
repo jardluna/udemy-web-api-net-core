@@ -8,4 +8,10 @@ namespace _01_APICatalogo.Repositories;
 public class CategoriaRepository : Repository<Categoria>, ICategoriaRepository
 {
     public CategoriaRepository(CatalogoDbContext context) : base(context) { }
+
+
+    public IEnumerable<Categoria> GetProdutosAll()
+    {
+        return _context.Categorias.Include(p => p.Produtos).ToList();
+    }
 }

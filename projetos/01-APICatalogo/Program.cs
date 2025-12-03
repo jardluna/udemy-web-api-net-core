@@ -17,8 +17,7 @@ builder.Services.AddControllers().AddJsonOptions(
     options => options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
 
 // Trata as exceções usando um filtro
-builder.Services.AddControllers(
-    options => options.Filters.Add(typeof(ApiExceptionFilter)));
+//builder.Services.AddControllers(options => options.Filters.Add(typeof(ApiExceptionFilter)));
 
 //builder.Services.AddControllers(); // builder padrão da Controller
 builder.Services.AddEndpointsApiExplorer();
@@ -33,6 +32,7 @@ builder.Services.AddDbContext<CatalogoDbContext>(options =>
 builder.Services.AddScoped<ICategoriaRepository, CategoriaRepository>();
 builder.Services.AddScoped<IProdutoRepository, ProdutoRepository>();
 builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 //builder.Services.AddTransient<IMeuServico, MeuServico>(); // Builder usado pelo FromService
 

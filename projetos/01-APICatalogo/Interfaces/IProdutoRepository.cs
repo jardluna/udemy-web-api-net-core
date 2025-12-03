@@ -4,5 +4,5 @@ namespace _01_APICatalogo.Interfaces;
 
 public interface IProdutoRepository : IRepository<Produto>
 {
-    IEnumerable<Produto> GetProdutosPorCategoria(int id);
+    public IEnumerable<Produto> GetProdutosPorCategoria(int id);
 }

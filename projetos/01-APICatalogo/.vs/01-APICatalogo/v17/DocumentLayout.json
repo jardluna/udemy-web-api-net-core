@@ -1,88 +1,12 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\mathe\\Cursos\\udemy-web-api-net-core\\projetos\\01-APICatalogo\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{CC4C8298-9E30-4E48-96B4-B373A67967F4}|01-APICatalogo.csproj|c:\\users\\mathe\\cursos\\udemy-web-api-net-core\\projetos\\01-apicatalogo\\controllers\\produtoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CC4C8298-9E30-4E48-96B4-B373A67967F4}|01-APICatalogo.csproj|solutionrelative:controllers\\produtoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CC4C8298-9E30-4E48-96B4-B373A67967F4}|01-APICatalogo.csproj|c:\\users\\mathe\\cursos\\udemy-web-api-net-core\\projetos\\01-apicatalogo\\repositories\\produtorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CC4C8298-9E30-4E48-96B4-B373A67967F4}|01-APICatalogo.csproj|solutionrelative:repositories\\produtorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CC4C8298-9E30-4E48-96B4-B373A67967F4}|01-APICatalogo.csproj|c:\\users\\mathe\\cursos\\udemy-web-api-net-core\\projetos\\01-apicatalogo\\controllers\\categoriascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CC4C8298-9E30-4E48-96B4-B373A67967F4}|01-APICatalogo.csproj|solutionrelative:controllers\\categoriascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CC4C8298-9E30-4E48-96B4-B373A67967F4}|01-APICatalogo.csproj|c:\\users\\mathe\\cursos\\udemy-web-api-net-core\\projetos\\01-apicatalogo\\repositories\\categoriarepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CC4C8298-9E30-4E48-96B4-B373A67967F4}|01-APICatalogo.csproj|solutionrelative:repositories\\categoriarepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": [
-        {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 2,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "CategoriasController.cs",
-              "DocumentMoniker": "C:\\Users\\mathe\\Cursos\\udemy-web-api-net-core\\projetos\\01-APICatalogo\\Controllers\\CategoriasController.cs",
-              "RelativeDocumentMoniker": "Controllers\\CategoriasController.cs",
-              "ToolTip": "C:\\Users\\mathe\\Cursos\\udemy-web-api-net-core\\projetos\\01-APICatalogo\\Controllers\\CategoriasController.cs",
-              "RelativeToolTip": "Controllers\\CategoriasController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAD0AAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-02T02:03:38.223Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "CategoriaRepository.cs",
-              "DocumentMoniker": "C:\\Users\\mathe\\Cursos\\udemy-web-api-net-core\\projetos\\01-APICatalogo\\Repositories\\CategoriaRepository.cs",
-              "RelativeDocumentMoniker": "Repositories\\CategoriaRepository.cs",
-              "ToolTip": "C:\\Users\\mathe\\Cursos\\udemy-web-api-net-core\\projetos\\01-APICatalogo\\Repositories\\CategoriaRepository.cs",
-              "RelativeToolTip": "Repositories\\CategoriaRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-02T02:03:47.012Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "ProdutosController.cs",
-              "DocumentMoniker": "C:\\Users\\mathe\\Cursos\\udemy-web-api-net-core\\projetos\\01-APICatalogo\\Controllers\\ProdutosController.cs",
-              "RelativeDocumentMoniker": "Controllers\\ProdutosController.cs",
-              "ToolTip": "C:\\Users\\mathe\\Cursos\\udemy-web-api-net-core\\projetos\\01-APICatalogo\\Controllers\\ProdutosController.cs",
-              "RelativeToolTip": "Controllers\\ProdutosController.cs",
-              "ViewState": "AgIAADMAAAAAAAAAAAAgwCAAAABMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-02T02:03:38.914Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ProdutoRepository.cs",
-              "DocumentMoniker": "C:\\Users\\mathe\\Cursos\\udemy-web-api-net-core\\projetos\\01-APICatalogo\\Repositories\\ProdutoRepository.cs",
-              "RelativeDocumentMoniker": "Repositories\\ProdutoRepository.cs",
-              "ToolTip": "C:\\Users\\mathe\\Cursos\\udemy-web-api-net-core\\projetos\\01-APICatalogo\\Repositories\\ProdutoRepository.cs",
-              "RelativeToolTip": "Repositories\\ProdutoRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-02T02:03:47.662Z",
-              "EditorCaption": ""
-            }
-          ]
-        }
-      ]
+      "DocumentGroups": []
     }
   ]
 }

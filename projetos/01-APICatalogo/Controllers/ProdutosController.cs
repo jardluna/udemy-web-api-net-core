@@ -8,29 +8,18 @@ namespace _01_APICatalogo.Controllers;
 [ApiController]
 public class ProdutosController : ControllerBase
 {
-    private readonly IRepository<Produto> _repository;
-    private readonly IProdutoRepository _produtoRepository;
+    private readonly IUnitOfWork _uow;
 
-    public ProdutosController(IRepository<Produto> repository, IProdutoRepository produtoRepository)
+    public ProdutosController(IUnitOfWork uow)
     {
-        _repository = repository;
-        _produtoRepository = produtoRepository;
+        _uow = uow;
     }
 
 
     [HttpGet]
     public ActionResult<IEnumerable<Produto>> Get()
     {
-        var produto = _repository.GetAll();
-        return Ok(produto);
-    }
-
-
-    [HttpGet("produtos/{id:int}")]
-    public ActionResult<IEnumerable<Produto>> GetProdutosCategoria(int id)
-    {
-        var produto = _produtoRepository.GetProdutosPorCategoria(id);
-        if (produto == null) { return NotFound($"Id:{id} não encontrado"); }
+        var produto = _uow.ProdutoRepository.GetAll();
         return Ok(produto);
     }
 
@@ -38,7 +27,16 @@ public class ProdutosController : ControllerBase
     [HttpGet("{id:int}", Name = "ObterProduto")]
     public ActionResult<Produto> Get(int id)
     {
-        var produto = _repository.GetById(p => p.ProdutoId == id);
+        var produto = _uow.ProdutoRepository.GetById(p => p.ProdutoId == id);
+        if (produto == null) { return NotFound($"Id:{id} não encontrado"); }
+        return Ok(produto);
+    }
+
+
+    [HttpGet("categoria/{id:int}")]
+    public ActionResult<IEnumerable<Produto>> GetProdutoPorCategoria(int id)
+    {
+        var produto = _uow.ProdutoRepository.GetProdutosPorCategoria(id);
         if (produto == null) { return NotFound($"Id:{id} não encontrado"); }
         return Ok(produto);
     }
@@ -48,7 +46,8 @@ public class ProdutosController : ControllerBase
     public ActionResult<Produto> Post(Produto produto)
     {
         if (produto == null) { return BadRequest("Dados inválidos"); }
-        _repository.Create(produto);
+        _uow.ProdutoRepository.Create(produto);
+        _uow.Commit();
         return new CreatedAtRouteResult("ObterProduto", new { id = produto.CategoriaId }, produto);
     }
 
@@ -57,7 +56,8 @@ public class ProdutosController : ControllerBase
     public ActionResult<Produto> Put(int id, Produto produto)
     {
         if (id != produto.ProdutoId) { return BadRequest($"Dados inválidos"); }
-        _repository.Update(produto);
+        _uow.ProdutoRepository.Update(produto);
+        _uow.Commit();
         return Ok(produto);
     }
 
@@ -65,9 +65,10 @@ public class ProdutosController : ControllerBase
     [HttpDelete("{id:int}")]
     public ActionResult<Produto> Delete(int id)
     {
-        var produto = _repository.GetById(p => p.ProdutoId == id);
+        var produto = _uow.ProdutoRepository.GetById(p => p.ProdutoId == id);
         if (produto == null) { return NotFound($"Id:{id} não encontrado"); }
-        _repository.Delete(produto);
+        _uow.ProdutoRepository.Delete(produto);
+        _uow.Commit();
         return Ok(produto);
     }
 }
